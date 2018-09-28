@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<robot name="one_robot">
+  <!-- Base link -->
+  <link name="link1">
+    <visual>
+      <origin xyz="0 0 0.5" rpy="0 0 0" />
+      <geometry>
+        <box size="0.2 0.2 1" />
+      </geometry>
+    </visual>
+    <inertial>
+      <origin xyz="0 0 0.5" rpy="0 0 0" />
+      <mass value="1" />
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />
+    </inertial>
+  </link>
+  <link name="link2">
+    <visual>
+      <origin xyz="0 0 0.5" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="1" radius="0.1" />
+      </geometry>
+    </visual>
+    <inertial>
+      <origin xyz="0 0 0.5" rpy="0 0 0" />
+      <mass value="1" />
+      <inertia ixx="0.1" ixy="0.0" ixz="0.0" iyy="0.1" iyz="0.0" izz="0.005" />
+    </inertial>
+  </link>
+  <joint name="joint1" type="revolute">
+    <parent link="link1" />
+    <child link="link2" />
+    <origin xyz="0 0 1" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit effort="10.0" lower="0.0" upper="2.0" velocity="0.5" />
+    <dynamic damping="1.0" />
+  </joint>
+</robot>
+
